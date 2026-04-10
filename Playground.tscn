@@ -4,10 +4,12 @@
 [ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="3_anjpt"]
 [ext_resource type="Material" uid="uid://c1u020xb37y6n" path="res://addons/ThirdPersonTemplate/Environments/Materials/Blue.material" id="3_ugxud"]
 [ext_resource type="Material" uid="uid://d3up41bo0vjj0" path="res://addons/ThirdPersonTemplate/Environments/Materials/OrangeGrid.material" id="4_kii6k"]
+[ext_resource type="Script" uid="uid://csvtmm8ct5k2p" path="res://ItemData.cs" id="5_3321n"]
 [ext_resource type="Material" uid="uid://ddpgp1pyklffr" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreenGrid.material" id="6_5rtke"]
 [ext_resource type="Material" uid="uid://bquocw2a8n271" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreyGrid.material" id="6_7xeo2"]
 [ext_resource type="Material" uid="uid://cpk3jtowelhgh" path="res://addons/ThirdPersonTemplate/Environments/Materials/PingkGrid.material" id="7_xstjq"]
 [ext_resource type="PackedScene" uid="uid://c75s2m6eic1vo" path="res://addons/ThirdPersonTemplate/Character/Nodes/PlayerTemplate.tscn" id="8_fimwp"]
+[ext_resource type="Script" uid="uid://bxct0eqgd5mia" path="res://addons/ThirdPersonTemplate/Character/Scripts/GameManager.cs" id="9_3px5j"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
 background_mode = 2
@@ -17,6 +19,8 @@ ssao_enabled = true
 sdfgi_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 1.15
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3px5j"]
 
 [node name="Scene" type="Node3D" unique_id=676745667]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0815773, -1.43051e-06, 0.163605)
@@ -42,10 +46,13 @@ size = Vector3(47.5872, 0.1, 47.791)
 material = ExtResource("3_anjpt")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Level" unique_id=269874017]
-transform = Transform3D(0.833182, 0, 0.552999, 0, 1, 0, -0.552999, 0, 0.833182, 16.5416, 3.19482, -15.014)
+transform = Transform3D(0.8331819, 0, 0.55299896, 0, 1, 0, -0.55299896, 0, 0.8331819, 16.5416, 1.7142131, -15.014)
 use_collision = true
-size = Vector3(4, 6, 8)
+size = Vector3(0.5, 0.5, 0.5)
 material = ExtResource("4_kii6k")
+script = ExtResource("5_3321n")
+ItemName = "Health Potion"
+Value = 100
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Level" unique_id=1621995513]
 transform = Transform3D(-0.318513, 0, 0.947919, 0, 1, 0, -0.947919, 0, -0.318513, 0.541599, 13.1948, 3.986)
@@ -117,3 +124,77 @@ material = ExtResource("6_7xeo2")
 
 [node name="PlayerTemplate" parent="." unique_id=1578404403 instance=ExtResource("8_fimwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.8399)
+
+[node name="AnimationTree" parent="PlayerTemplate" index="1"]
+root_node = NodePath("../mannequiny-0_4_0")
+
+[node name="Skeleton3D" parent="PlayerTemplate/mannequiny-0_4_0/root" index="0"]
+bones/0/position = Vector3(-0.007307321, 0.9676283, 0.25206503)
+bones/0/rotation = Quaternion(0.130706, 0.14469, -0.0101098, 0.9807541)
+bones/1/rotation = Quaternion(0.75250465, 0.10018296, 0.6506657, 0.01828282)
+bones/1/scale = Vector3(0.999998, 1.0286757, 1)
+bones/2/rotation = Quaternion(-3.8947885e-05, 5.436699e-05, 0.0025685048, 0.9999967)
+bones/3/rotation = Quaternion(0.28140655, 0.5315772, -0.3114504, 0.7356866)
+bones/3/scale = Vector3(0.99928486, 0.9887994, 0.98540133)
+bones/4/rotation = Quaternion(0.10860053, 0.9426114, 0.31453827, -0.027485555)
+bones/4/scale = Vector3(1.00017, 0.9870408, 1.0126209)
+bones/5/rotation = Quaternion(-0.9939582, 0.039549593, 0.014139086, -0.10140636)
+bones/5/scale = Vector3(0.999997, 1.0133603, 0.999999)
+bones/6/rotation = Quaternion(-3.2367586e-06, -2.1200789e-05, -0.0026043195, 0.9999966)
+bones/7/rotation = Quaternion(0.12613975, -0.84250057, 0.36644474, 0.37416556)
+bones/7/scale = Vector3(0.9998345, 0.9937722, 0.9933859)
+bones/8/position = Vector3(-0.0014045221, 0.12765028, -0.0016702779)
+bones/8/rotation = Quaternion(-0.062385086, 0.9458519, 0.31838146, 0.010279863)
+bones/8/scale = Vector3(0.99997115, 0.9936478, 1.0063488)
+bones/9/rotation = Quaternion(-0.12123593, -0.14759094, 0.012175093, 0.9815144)
+bones/10/rotation = Quaternion(-0.111496344, 0.0032808268, 0.000368103, 0.99375945)
+bones/11/rotation = Quaternion(0.31369892, 0.0063864584, 0.0021100992, 0.94949865)
+bones/12/rotation = Quaternion(-0.12821943, -0.006702913, -0.00085895584, 0.9917228)
+bones/13/rotation = Quaternion(-0.455922, 0.6183057, -0.4969565, -0.40356845)
+bones/14/rotation = Quaternion(0.4304019, 0.5216229, 0.3689066, 0.63762975)
+bones/15/rotation = Quaternion(0.28692326, 0.126463, 0.22209828, 0.9232306)
+bones/16/rotation = Quaternion(0.011142471, 0.2821863, -0.014683937, 0.95918256)
+bones/17/rotation = Quaternion(0.0464701, -0.78692305, 0.31700903, 0.52735)
+bones/18/rotation = Quaternion(-0.024222797, -0.30665895, 0.06259779, 0.9494499)
+bones/19/rotation = Quaternion(-0.009207887, 0.43872824, 0.008596285, 0.89853156)
+bones/20/rotation = Quaternion(-0.7130715, 0.12367181, -0.028593877, 0.6895046)
+bones/21/rotation = Quaternion(-0.5855477, -0.02074072, 0.009455939, 0.81031746)
+bones/22/rotation = Quaternion(-0.5874688, -0.0038137494, -0.00984868, 0.8091779)
+bones/23/rotation = Quaternion(-0.4501822, 0.1614631, -0.036356427, 0.8774645)
+bones/24/rotation = Quaternion(-0.6457097, -0.007694966, -0.01944329, 0.76329666)
+bones/25/rotation = Quaternion(-0.6397661, -0.017741105, -0.020056304, 0.7681032)
+bones/26/rotation = Quaternion(-0.42560303, 0.14451599, -0.038539603, 0.8924639)
+bones/27/rotation = Quaternion(-0.58352697, 0.0019309495, -0.0536865, 0.810315)
+bones/28/rotation = Quaternion(-0.5992799, 0.00781384, -0.029632004, 0.79995286)
+bones/29/rotation = Quaternion(0.45549178, 0.6187109, -0.4962833, 0.40426093)
+bones/30/rotation = Quaternion(-0.43041405, 0.52165836, 0.36876696, -0.63767344)
+bones/31/rotation = Quaternion(0.28690648, -0.1264937, -0.2221972, 0.92320776)
+bones/32/rotation = Quaternion(0.011171769, -0.28200305, 0.015037515, 0.9592306)
+bones/33/rotation = Quaternion(0.04670312, 0.7870351, -0.31692907, 0.5272102)
+bones/34/rotation = Quaternion(-0.0241585, 0.306849, -0.062417105, 0.94940203)
+bones/35/rotation = Quaternion(-0.009198686, -0.43852982, -0.008364467, 0.8986307)
+bones/36/rotation = Quaternion(-0.7130346, -0.12360192, 0.029208682, 0.6895296)
+bones/37/rotation = Quaternion(-0.58555126, 0.020786906, -0.009220387, 0.8103164)
+bones/38/rotation = Quaternion(-0.587466, 0.0038578105, 0.010154199, 0.809176)
+bones/39/rotation = Quaternion(-0.4501039, -0.16124797, 0.036845297, 0.8775238)
+bones/40/rotation = Quaternion(-0.64569575, 0.0076816366, 0.019752491, 0.76330066)
+bones/41/rotation = Quaternion(-0.63976204, 0.017770505, 0.020345706, 0.7680982)
+bones/42/rotation = Quaternion(-0.42548105, -0.144288, 0.0390203, 0.89253813)
+bones/43/rotation = Quaternion(-0.583503, -0.0019083895, 0.0540069, 0.81031096)
+bones/44/rotation = Quaternion(-0.59926534, -0.0077647427, 0.029895814, 0.79995435)
+
+[node name="InteractionZone" type="Area3D" parent="PlayerTemplate" unique_id=741454684]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerTemplate/InteractionZone" unique_id=1116021638]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_3px5j")
+
+[node name="GameManager" type="Node3D" parent="." unique_id=212674257]
+process_mode = 3
+script = ExtResource("9_3px5j")
+
+[connection signal="body_entered" from="PlayerTemplate/InteractionZone" to="GameManager" method="OnItemEnteredZone"]
+[connection signal="body_exited" from="PlayerTemplate/InteractionZone" to="GameManager" method="OnItemExitedZone"]
+
+[editable path="PlayerTemplate"]
+[editable path="PlayerTemplate/mannequiny-0_4_0"]
