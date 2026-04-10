@@ -15,13 +15,17 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Gd Quest-3 Rd-person-character-demo"
-run/main_scene="uid://ngecyo0pmaed"
-config/features=PackedStringArray("4.6", "Forward Plus")
+run/main_scene="uid://ci6vgup1ls47s"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="Gd Quest-3 Rd-person-character-demo"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg")
 
 [input]
 
