@@ -7,6 +7,7 @@ public partial class GameManager : Node
 {
     public enum GameState { Exploring, Interacting, Paused }
     [Export] public GameState CurrentState { get; set; } = GameState.Exploring;
+    [Export] public Label InteractionLabel;
 
     private ItemData _currentSelectedItem;
     private List<ItemData> _inventory = new List<ItemData>();
@@ -61,7 +62,12 @@ public partial class GameManager : Node
         if (body is ItemData item)
         {
             _currentSelectedItem = item;
-            GD.Print("Press E to interact with: " + _currentSelectedItem.ItemName);
+
+            if (InteractionLabel != null)
+            {
+                InteractionLabel.Text = $"Press [E] to pick up {item.ItemName}";
+                InteractionLabel.Visible = true;
+            }
         }
     }
 
@@ -71,6 +77,8 @@ public partial class GameManager : Node
         {
             GD.Print("Left the interaction zone.");
             _currentSelectedItem = null;
+
+            if (InteractionLabel != null) InteractionLabel.Visible = false;
         }
     }
 
@@ -85,6 +93,8 @@ public partial class GameManager : Node
             _currentSelectedItem.QueueFree();
             
             _currentSelectedItem = null;
+
+            if (InteractionLabel != null) InteractionLabel.Visible = false;
         }
     }
 
