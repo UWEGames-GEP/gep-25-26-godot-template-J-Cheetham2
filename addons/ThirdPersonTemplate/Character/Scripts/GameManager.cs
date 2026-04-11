@@ -8,6 +8,8 @@ public partial class GameManager : Node
     public enum GameState { Exploring, Interacting, Paused }
     [Export] public GameState CurrentState { get; set; } = GameState.Exploring;
     [Export] public Label InteractionLabel;
+    [Export] public Control InventoryMenu;
+    [Export] public ItemList ItemDisplay;
 
     private ItemData _currentSelectedItem;
     private List<ItemData> _inventory = new List<ItemData>();
@@ -17,9 +19,12 @@ public partial class GameManager : Node
     public override void _Ready()
 
     {
-
         GD.Print("GameManager Initialized. Current State: " + CurrentState);
 
+        if (InventoryMenu != null) InventoryMenu.Visible = false;
+        if (InteractionLabel != null) InteractionLabel.Visible = false;
+
+        Input.MouseMode = Input.MouseModeEnum.Captured;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,7 +32,6 @@ public partial class GameManager : Node
     public override void _Process(double delta)
 
     {
-
         if (Input.IsActionJustPressed("ui_cancel"))
 
         {
@@ -39,6 +43,10 @@ public partial class GameManager : Node
             AttemptInteraction();
         }
 
+        if (Input.IsActionJustPressed("ui_inventory"))
+        {
+            ToggleInventory();
+        }
     }
 
     private void TogglePause()
@@ -95,6 +103,36 @@ public partial class GameManager : Node
             _currentSelectedItem = null;
 
             if (InteractionLabel != null) InteractionLabel.Visible = false;
+        }
+    }
+
+    private void ToggleInventory()
+    {
+        if (CurrentState == GameState.Paused) return;
+
+        if (CurrentState == GameState.Interacting)
+        {
+            CurrentState = GameState.Exploring;
+            InventoryMenu.Visible = false;
+            Input.MouseMode = Input.MouseModeEnum.Captured;
+            GetTree().Paused = false;
+        }
+        else
+        {
+            CurrentState = GameState.Interacting;
+            UpdateInventoryUI();
+            InventoryMenu.Visible = true;
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+            GetTree().Paused = true;
+        }
+    }
+
+    private void UpdateInventoryUI()
+    {
+        ItemDisplay.Clear();
+        foreach (var item in _inventory)
+        {
+            ItemDisplay.AddItem(item.ItemName);
         }
     }
 
