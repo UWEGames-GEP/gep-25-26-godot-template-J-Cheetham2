@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +30,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\joshc\\OneDrive\\Documents\\gep-25-26-godot-template-J-Cheetham2\\addons\\ThirdPersonTemplate\\Character\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "addons\\ThirdPersonTemplate\\Character\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\joshc\\OneDrive\\Documents\\gep-25-26-godot-template-J-Cheetham2\\addons\\ThirdPersonTemplate\\Character\\Scripts\\GameManager.cs",
-              "RelativeToolTip": "addons\\ThirdPersonTemplate\\Character\\Scripts\\GameManager.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAqwDAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T01:17:09.264Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ItemData.cs",
               "DocumentMoniker": "C:\\Users\\joshc\\OneDrive\\Documents\\gep-25-26-godot-template-J-Cheetham2\\ItemData.cs",
               "RelativeDocumentMoniker": "ItemData.cs",
               "ToolTip": "C:\\Users\\joshc\\OneDrive\\Documents\\gep-25-26-godot-template-J-Cheetham2\\ItemData.cs",
               "RelativeToolTip": "ItemData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T00:27:18.28Z"
+              "WhenOpened": "2026-04-13T02:19:10.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\joshc\\OneDrive\\Documents\\gep-25-26-godot-template-J-Cheetham2\\addons\\ThirdPersonTemplate\\Character\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "addons\\ThirdPersonTemplate\\Character\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\joshc\\OneDrive\\Documents\\gep-25-26-godot-template-J-Cheetham2\\addons\\ThirdPersonTemplate\\Character\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "addons\\ThirdPersonTemplate\\Character\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAKEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T01:17:09.264Z",
+              "EditorCaption": ""
             }
           ]
         },

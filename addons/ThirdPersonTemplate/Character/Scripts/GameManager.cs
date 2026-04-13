@@ -10,6 +10,7 @@ public partial class GameManager : Node
     [Export] public Label InteractionLabel;
     [Export] public Control InventoryMenu;
     [Export] public ItemList ItemDisplay;
+    [Export] public Node3D Player;
 
     private ItemData _currentSelectedItem;
     private List<ItemData> _inventory = new List<ItemData>();
@@ -133,6 +134,28 @@ public partial class GameManager : Node
         foreach (var item in _inventory)
         {
             ItemDisplay.AddItem(item.ItemName);
+        }
+    }
+
+    public void _on_drop_button_pressed()
+    {
+        int[] selected = ItemDisplay.GetSelectedItems();
+
+        if (selected.Length > 0)
+        {
+            int index = selected[0];
+            ItemData item = _inventory[index];
+
+            if (item.WorldScene != null)
+            {
+                var droppedInstance = item.WorldScene.Instantiate<Node3D>();
+                GetTree().Root.AddChild(droppedInstance);
+
+                droppedInstance.GlobalPosition = Player.GlobalPosition + (-Player.GlobalTransform.Basis.Z * 2.0f);
+            }
+
+            _inventory.RemoveAt(index);
+            UpdateInventoryUI();
         }
     }
 
